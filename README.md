@@ -1,2 +1,2 @@
-# subscription
+# Subscription
 Subscription features for Laravel
