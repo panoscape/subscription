@@ -1,7 +1,7 @@
 {
     "name": "panoscape/subscription",
     "description": "Subscription features for Laravel",
-    "homepage": "https://github.com/panoscape/subscription",
+    "homepage": "https://github.com/seancheung/subscription",
     "keywords": [
       "laravel", "subscription", "subscribe", "membership"
     ],

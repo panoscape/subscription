@@ -49,15 +49,14 @@ class CreateSubscriptionTables extends Migration
 
         Schema::create('subscription_subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->morphs('user');
             $table->integer('plan_id')->unsigned();
-            $table->timestamp('trial_ends_at')->nullable();
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
             $table->timestamp('canceled_at')->nullable();
             $table->timestamps();
 
-            $table->unique(['user_id', 'plan_id']);
+            $table->unique(['user_id', 'user_type']);
             //TODO: users table
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('plan_id')->references('id')->on('subscription_plans')->onDelete('cascade');
