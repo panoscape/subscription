@@ -114,26 +114,26 @@ class TestCaseTest extends TestCase
         $this->assertFalse($subscription->canceled);
         $this->assertFalse($subscription->ended);
 
-        $this->assertTrue($this->user->canUse($this->feature->name));
-        $this->assertTrue($this->user->canUse($this->feature));
-        $this->assertTrue($this->user->canUse($this->feature->id));
+        $this->assertTrue($this->user->subscription->canUse($this->feature->name));
+        $this->assertTrue($this->user->subscription->canUse($this->feature));
+        $this->assertTrue($this->user->subscription->canUse($this->feature->id));
 
         $this->user->subscription->cancel();
 
         $this->assertTrue($this->user->subscription->canceled);
         $this->assertFalse($this->user->subscription->ended);
 
-        $this->assertFalse($this->user->canUse($this->feature->name));
-        $this->assertFalse($this->user->canUse($this->feature));
-        $this->assertFalse($this->user->canUse($this->feature->id));
+        $this->assertFalse($this->user->subscription->canUse($this->feature->name));
+        $this->assertFalse($this->user->subscription->canUse($this->feature));
+        $this->assertFalse($this->user->subscription->canUse($this->feature->id));
 
         $this->user->subscription->renew();
 
         $this->assertFalse($this->user->subscription->canceled);
         $this->assertFalse($this->user->subscription->ended);
 
-        $this->assertTrue($this->user->canUse($this->feature->name));
-        $this->assertTrue($this->user->canUse($this->feature));
-        $this->assertTrue($this->user->canUse($this->feature->id));
+        $this->assertTrue($this->user->subscription->canUse($this->feature->name));
+        $this->assertTrue($this->user->subscription->canUse($this->feature));
+        $this->assertTrue($this->user->subscription->canUse($this->feature->id));
     }
 }

@@ -65,19 +65,4 @@ trait HasSubscriptions
     {
         return $this->subscribed();
     }
-
-    /**
-     * Check if the user has the given feature
-     *
-     * @param mixed $feature
-     * @return bool
-     */
-    public function canUse($feature)
-    {
-        if(!$this->subscribed()) {
-            return false;
-        }
-
-        return $this->subscription->canUse($feature);        
-    }
 }
